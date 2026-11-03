@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hồ sơ cá nhân / Portfolio mini dành cho học phần Lập trình Web">
+    <title>Hồ sơ cá nhân | Portfolio Mini</title>
+    <!-- Compiled SCSS stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header - Navigation -->
+    <header class="header">
+        <div class="logo">MyPortfolio</div>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#skills">Kỹ năng</a></li>
+                <li><a href="#projects">Dự án</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-btn" aria-label="Đổi chế độ sáng tối">🌙 Dark Mode</button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Mục 1: giới thiệu bản thân -->
+        <section id="about" class="section about-section">
+            <h1>Hồ sơ Cá nhân</h1>
+            <figure class="profile-figure">
+                <img src="https://via.placeholder.com/150" alt="Ảnh đại diện cá nhân" class="profile-img" loading="lazy">
+                <figcaption>Sinh viên ngành Công nghệ Thông tin - ĐH Gia Định</figcaption>
+            </figure>
+            <p>Xin chào! Tôi là sinh viên ngành IT đam mê phát triển ứng dụng Web Frontend & Full-Stack. Đây là trang Portfolio giới thiệu quá trình học tập và dự án cá nhân.</p>
+        </section>
+
+        <!-- Mục 2: Bảng kĩ năng -->
+        <section id="skills" class="section skills-section">
+            <h2>Kỹ năng & Quá trình học tập</h2>
+            <div class="table-container">
+                <table class="skills-table">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Kỹ năng / Môn học</th>
+                            <th>Mức độ thành thạo</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="skills-tbody">
+                        <!-- Rendered dynamically by script.js -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- mục 3 : dự án -->
+        <section id="projects" class="section projects-section">
+            <h2>Dự án đã thực hiện</h2>
+            <div id="projects-grid" class="projects-grid">
+                <!-- Data fetched from js/data.json will be rendered here -->
+            </div>
+            <div id="projects-error" class="error-msg" style="display: none;">
+                Không thể tải danh sách dự án. Vui lòng kiểm tra lại đường dẫn file hoặc server.
+            </div>
+        </section>
+
+        <!-- Mục 4: thông tin  -->
+        <section id="contact" class="section contact-section">
+            <h2>Liên hệ với tôi</h2>
+            <form id="contact-form" class="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="fullname">Họ và tên *</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Nhập họ và tên..." required minlength="2">
+                    <small class="form-error" id="error-fullname"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+                    <small class="form-error" id="error-email"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Số điện thoại *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="09xxxxxxxx" pattern="[0-9]{10,11}" required>
+                    <small class="form-error" id="error-phone"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Lời nhắn *</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Nhập nội dung liên hệ..." required minlength="10"></textarea>
+                    <small class="form-error" id="error-message"></small>
+                </div>
+
+                <button type="submit" class="btn-submit">Gửi liên hệ</button>
+                <div id="form-response" class="form-response"></div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <address>
+            Email: <a href="mailto:sinhvien@giadinh.edu.vn">sinhvien@giadinh.edu.vn</a> | 
+            SĐT: <a href="tel:0901234567">090 123 4567</a>
+        </address>
+        <p>&copy; 2026 Hồ sơ cá nhân. Tất cả quyền được bảo lưu.</p>
+    </footer>
+
+    <!-- JavaScript Execution -->
+    <script src="js/script.js" defer></script>
+</body>
+</html>
