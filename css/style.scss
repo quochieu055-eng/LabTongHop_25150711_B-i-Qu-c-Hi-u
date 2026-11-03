@@ -1,0 +1,271 @@
+
+// 1. SCSS VARIABLES
+$primary-color: #1a2e5a;
+$secondary-color: #1d6fa4;
+$accent-color: #0d9488;
+$bg-light: #f4f7fb;
+$text-light: #1e293b;
+$card-bg-light: #ffffff;
+
+$bg-dark: #0f172a;
+$text-dark: #f8fafc;
+$card-bg-dark: #1e293b;
+
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$radius: 8px;
+
+// 2. MIXINS
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin card-style($bg:$card-bg-light) {
+    background-color: $bg;
+    padding: $spacing-lg;
+    border-radius: $radius;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+// 3. GLOBAL RESET & BASE
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    background-color: $bg-light;
+    color: $text-light;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    // Dark Mode Theme Override
+    &.dark-mode {
+        background-color: $bg-dark;
+        color: $text-dark;
+
+        .header, .footer {
+            background-color: lighten($bg-dark, 5%);
+        }
+
+        .project-card, .contact-form, .skills-table {
+            background-color: $card-bg-dark;
+            color: $text-dark;
+        }
+
+        .skills-table th {
+            background-color: lighten($bg-dark, 10%);
+            color: $text-dark;
+        }
+
+        .skills-table td {
+            border-bottom-color: lighten($bg-dark, 15%);
+        }
+
+        .form-group input, .form-group textarea {
+            background-color: $bg-dark;
+            color: $text-dark;
+            border-color: lighten($bg-dark, 20%);
+        }
+    }
+}
+
+// 4. HEADER & FLEXBOX NAVBAR
+.header {
+    @include flex-between;
+    flex-wrap: wrap;
+    background-color: $primary-color;
+    color: white;
+    padding: $spacing-md$spacing-lg;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    .logo {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    .nav-list {
+        display: flex;
+        list-style: none;
+        gap: $spacing-md;
+
+        a {
+            color: #93c5fd;
+            text-decoration: none;
+            font-weight: 500;
+
+            &:hover {
+                color: white;
+            }
+        }
+    }
+
+    .theme-btn {
+        background: transparent;
+        border: 1px solid #93c5fd;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+}
+
+// 5. MAIN CONTENT & SECTIONS
+.main-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: $spacing-lg$spacing-md;
+}
+
+.section {
+    margin-bottom: 40px;
+
+    h1, h2 {
+        margin-bottom: $spacing-md;
+        color: $secondary-color;
+    }
+}
+
+.about-section {
+    text-align: center;
+
+    .profile-img {
+        border-radius: 50%;
+        margin-bottom: $spacing-sm;
+    }
+}
+
+// Table Styling
+.table-container {
+    overflow-x: auto;
+}
+
+.skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    @include card-style;
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #e2e8f0;
+        font-weight: bold;
+    }
+
+    td {
+        border-bottom: 1px solid #e2e8f0;
+    }
+}
+
+// 6. CSS GRID - PROJECTS
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr; // Mobile first: 1 column
+    gap: $spacing-lg;
+
+    .project-card {
+        @include card-style;
+        border-left: 4px solid $secondary-color;
+
+        h3 {
+            margin-bottom: $spacing-sm;
+        }
+    }
+}
+
+// 7. CONTACT FORM
+.contact-form {
+    @include card-style;
+
+    .form-group {
+        margin-bottom: $spacing-md;
+
+        label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-family: inherit;
+
+            &.error {
+                border-color: #ef4444;
+            }
+        }
+
+        .form-error {
+            color: #ef4444;
+            font-size: 0.85rem;
+            min-height: 18px;
+            display: block;
+        }
+    }
+
+    .btn-submit {
+        background-color: $secondary-color;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($secondary-color, 10%);
+        }
+    }
+
+    .form-response {
+        margin-top: $spacing-md;
+        font-weight: bold;
+        color: $accent-color;
+    }
+}
+
+// 8. FOOTER
+
+.footer {
+    background-color: $primary-color;
+    color: #94a3b8;
+    text-align: center;
+    padding: $spacing-lg;
+
+    a {
+        color: #93c5fd;
+    }
+}
+
+
+// 9. RESPONSIVE MEDIA QUERIES (MOBILE-FIRST)
+// Tablet Breakpoint
+@media (min-width: 640px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+// Desktop Breakpoint
+@media (min-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

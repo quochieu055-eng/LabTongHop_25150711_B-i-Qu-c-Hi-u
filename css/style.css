@@ -1,0 +1,208 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f7fb;
+  color: #1e293b;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.dark-mode {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+body.dark-mode .header, body.dark-mode .footer {
+  background-color: #17233f;
+}
+body.dark-mode .project-card, body.dark-mode .contact-form, body.dark-mode .skills-table {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+body.dark-mode .skills-table th {
+  background-color: #243453;
+  color: #f8fafc;
+}
+body.dark-mode .skills-table td {
+  border-bottom-color: #2b3e64;
+}
+body.dark-mode .form-group input, body.dark-mode .form-group textarea {
+  background-color: #0f172a;
+  color: #f8fafc;
+  border-color: #334a78;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #1a2e5a;
+  color: white;
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header .logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.header .nav-list {
+  display: flex;
+  list-style: none;
+  gap: 16px;
+}
+.header .nav-list a {
+  color: #93c5fd;
+  text-decoration: none;
+  font-weight: 500;
+}
+.header .nav-list a:hover {
+  color: white;
+}
+.header .theme-btn {
+  background: transparent;
+  border: 1px solid #93c5fd;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.header .theme-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.main-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+.section h1, .section h2 {
+  margin-bottom: 16px;
+  color: #1d6fa4;
+}
+
+.about-section {
+  text-align: center;
+}
+.about-section .profile-img {
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.skills-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+.skills-table th, .skills-table td {
+  padding: 12px;
+  text-align: left;
+}
+.skills-table th {
+  background-color: #e2e8f0;
+  font-weight: bold;
+}
+.skills-table td {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.projects-grid .project-card {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #1d6fa4;
+}
+.projects-grid .project-card h3 {
+  margin-bottom: 8px;
+}
+
+.contact-form {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+.contact-form .form-group {
+  margin-bottom: 16px;
+}
+.contact-form .form-group label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.contact-form .form-group input, .contact-form .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-family: inherit;
+}
+.contact-form .form-group input.error, .contact-form .form-group textarea.error {
+  border-color: #ef4444;
+}
+.contact-form .form-group .form-error {
+  color: #ef4444;
+  font-size: 0.85rem;
+  min-height: 18px;
+  display: block;
+}
+.contact-form .btn-submit {
+  background-color: #1d6fa4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.contact-form .btn-submit:hover {
+  background-color: #165680;
+}
+.contact-form .form-response {
+  margin-top: 16px;
+  font-weight: bold;
+  color: #0d9488;
+}
+
+.footer {
+  background-color: #1a2e5a;
+  color: #94a3b8;
+  text-align: center;
+  padding: 24px;
+}
+.footer a {
+  color: #93c5fd;
+}
+
+@media (min-width: 640px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
