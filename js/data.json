@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "ten": "Website Portfolio Cá nhân",
+    "congNghe": "HTML5, SCSS, JavaScript",
+    "namHoanThanh": 2025
+  },
+  {
+    "id": 2,
+    "ten": "Ứng dụng Quản lý Chi tiêu",
+    "congNghe": "JavaScript, LocalStorage",
+    "namHoanThanh": 2025
+  },
+  {
+    "id": 3,
+    "ten": "Landing Page Sự kiện",
+    "congNghe": "HTML5, Flexbox, Grid",
+    "namHoanThanh": 2024
+  }
+]
